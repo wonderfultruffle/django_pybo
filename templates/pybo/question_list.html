@@ -28,7 +28,12 @@
                     <!-- 번호 = 전체 건수 - 시작 인텍스 - 현재 인덱스 + 1 -->
                     {{question_list.paginator.count|sub:question_list.start_index|sub:forloop.counter0|add:1}}
                 </td>
-                <td><a href="{% url 'pybo:detail' question.id %}">{{question.subject}}</a></td>
+                <td>
+                    <a href="{% url 'pybo:detail' question.id %}">{{question.subject}}</a>
+                    {% if question.answer_set.count > 0 %}
+                        <span class="text-danger mx-2 small">{{question.answer_set.count}}</span>
+                    {% endif %}
+                </td>
                 <td>{{question.create_date}}</td>
             </tr>
             {% endfor %}
