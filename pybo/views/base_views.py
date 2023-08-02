@@ -5,6 +5,7 @@ from ..models import Question
 
 # Create your views here.
 def index(request):
+    3/0
     page = request.GET.get("page", "1")
     kw = request.GET.get("kw", '')
     question_list = Question.objects.order_by("-create_date")
