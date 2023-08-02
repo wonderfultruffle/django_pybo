@@ -18,4 +18,4 @@ def signup(request):
     return render(request, "common/signup.html", {"form":form})
 
 def page_not_found(request, exception):
-    render(request, "common/404.html", {})
+    return render(request, "common/404.html", {})
